@@ -1,0 +1,14 @@
+#!/bin/sh
+set -e
+
+lb config noauto \
+  --architectures amd64 \
+  --distribution stable \
+  --archive-areas "main contrib non-free non-free-firmware" \
+  --binary-images iso-hybrid \
+  --bootappend-live "boot=live components locales=en_US.UTF-8 keyboard-layouts=us" \
+  --debian-installer none \
+  --iso-application "Polaris OS" \
+  --iso-publisher "Polaris OS" \
+  --iso-volume "POLARIS_OS" \
+  "${@}"
