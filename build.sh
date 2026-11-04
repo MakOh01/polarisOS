@@ -21,11 +21,12 @@ lb config noauto \
   --mirror-chroot "$MIRROR" \
   --mirror-binary "$MIRROR" \
   --security false \
+  --apt-recommends false \
   --linux-packages none \
   --initsystem systemd \
   --binary-images iso-hybrid \
   --archive-areas "main contrib non-free non-free-firmware" \
-  --bootappend-live "boot=live components username=polaris hostname=polaris quiet splash" \
+  --bootappend-live "boot=live components username=polaris hostname=polaris locales=en_US.UTF-8 keyboard-layouts=us quiet splash" \
   --firmware-binary true \
   --firmware-chroot true \
   --iso-application "Polaris OS" \
