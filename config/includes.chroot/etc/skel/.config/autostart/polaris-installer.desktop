@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Install Polaris OS
+Comment=Install Polaris OS to your computer
+Exec=pkexec calamares
+Icon=calamares
+Terminal=false
+Categories=System;
+StartupNotify=true
