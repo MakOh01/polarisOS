@@ -1,0 +1,14 @@
+#!/bin/sh
+set -eu
+
+# Create a real live-session account in the image. Do not rely on the
+# boot-time username= parameter: SDDM starts before that path can reliably
+# provide a selectable/autologin user on this Plasma image.
+if ! id polaris >/dev/null 2>&1; then
+    useradd -m -s /bin/bash -G sudo,netdev,plugdev,lpadmin polaris
+fi
+
+# The live environment is passwordless; SDDM should enter the session via
+# /etc/sddm.conf.d/10-polaris-autologin.conf.
+passwd -d polaris || true
+chown -R polaris:polaris /home/polaris
