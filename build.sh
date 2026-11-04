@@ -35,7 +35,7 @@ lb config noauto \
   --memtest none
 
 # GitHub's file API creates hooks as non-executable; mark chroot hooks runnable.
-chmod +x config/hooks/normal/*.hook.chroot
+chmod +x config/hooks/*.hook.chroot config/hooks/normal/*.hook.chroot
 
 lb build
 
