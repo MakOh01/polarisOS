@@ -22,6 +22,7 @@ lb config noauto \
   --mirror-binary "$MIRROR" \
   --security false \
   --linux-packages none \
+  --initsystem systemd \
   --binary-images iso-hybrid \
   --archive-areas "main contrib non-free non-free-firmware" \
   --debian-installer none \
