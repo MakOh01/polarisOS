@@ -25,7 +25,6 @@ lb config noauto \
   --initsystem systemd \
   --binary-images iso-hybrid \
   --archive-areas "main contrib non-free non-free-firmware" \
-  --debian-installer none \
   --bootappend-live "boot=live components username=polaris hostname=polaris quiet splash" \
   --firmware-binary true \
   --firmware-chroot true \
