@@ -15,11 +15,19 @@ sddm
 network-manager
 network-manager-openvpn
 plasma-nm
+systemsettings
 konsole
 dolphin
 kate
 ark
 okular
+gwenview
+kcalc
+filelight
+partitionmanager
+plasma-discover
+plasma-discover-backend-flatpak
+vlc
 
 # Browser (the base Firefox package uses US English by default)
 firefox-esr
@@ -48,9 +56,16 @@ firmware-iwlwifi
 firmware-realtek
 firmware-atheros
 firmware-brcm80211
+firmware-mediatek
+firmware-ralink
 firmware-amd-graphics
+firmware-intel-sound
 intel-microcode
 amd64-microcode
+
+# Wireless diagnostics and radio control
+iw
+rfkill
 
 # Common hardware services
 bluez
