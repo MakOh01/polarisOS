@@ -16,6 +16,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Verify checkout
+        run: |
+          pwd
+          ls -la
+          test -f build.sh
+
       - name: Free disk space
         run: |
           sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc || true
@@ -28,7 +34,10 @@ jobs:
           sudo apt-get install -y live-build debootstrap
 
       - name: Build Polaris ISO
-        run: sudo ./build.sh
+        shell: bash
+        run: |
+          chmod +x build.sh
+          sudo bash ./build.sh
 
       - name: Upload ISO
         uses: actions/upload-artifact@v4
@@ -36,6 +45,6 @@ jobs:
           name: Polaris-OS-amd64
           path: |
             *.iso
-            SHA256SUMS
+            *.iso.sha256
           if-no-files-found: error
           retention-days: 14
