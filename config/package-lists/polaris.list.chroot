@@ -8,7 +8,9 @@ isolinux
 syslinux-common
 
 # Base desktop experience
+# Install KDE Standard explicitly because recommended packages are disabled.
 live-task-kde
+kde-standard
 sddm
 network-manager
 network-manager-openvpn
@@ -19,8 +21,15 @@ kate
 ark
 okular
 
-# Browser
+# Browser (the base Firefox package uses US English by default)
 firefox-esr
+
+# US English dictionaries and locale only
+locales
+hunspell-en-us
+hyphen-en-us
+aspell-en
+mythes-en-us
 
 # Audio / modern desktop plumbing
 pipewire
