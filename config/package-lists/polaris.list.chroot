@@ -1,3 +1,4 @@
+live-config-systemd
 # Kernel is installed through the normal package list; avoid live-build\n# auto-discovery of the removed Contents-amd64.gz index.\nlinux-image-amd64\n\n# Base desktop experience\nlive-task-kde
 sddm
 network-manager
