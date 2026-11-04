@@ -10,21 +10,20 @@ command -v lb >/dev/null || { echo "live-build is required" >&2; exit 1; }
 
 lb clean --purge 2>/dev/null || true
 
-# Ubuntu's live-build package still uses the legacy "<suite>/updates" security
-# suite format for Debian. Disable the separate security suite for the initial
-# ISO build; the normal Debian mirror still provides the selected Trixie release.
+# Use Debian Trixie's own live-build rather than Ubuntu 24.04's legacy 3.0~a57.
+# The Trixie version understands the current archive layout and hybrid BIOS/UEFI boot.
 lb config noauto \
   --mode debian \
-  --architectures "$ARCH" \
+  --architecture "$ARCH" \
   --distribution "$SUITE" \
   --mirror-bootstrap "$MIRROR" \
   --mirror-chroot "$MIRROR" \
   --mirror-binary "$MIRROR" \
-  --security false \
   --apt-recommends false \
   --linux-packages none \
   --initsystem systemd \
-  --binary-images iso-hybrid \
+  --binary-image iso-hybrid \
+  --bootloaders "syslinux,grub-efi" \
   --archive-areas "main contrib non-free non-free-firmware" \
   --bootappend-live "boot=live components username=polaris hostname=polaris locales=en_US.UTF-8 keyboard-layouts=us quiet splash" \
   --firmware-binary true \
@@ -35,7 +34,7 @@ lb config noauto \
   --memtest none
 
 # GitHub's file API creates hooks as non-executable; mark chroot hooks runnable.
-chmod +x config/hooks/*.hook.chroot config/hooks/normal/*.hook.chroot
+chmod +x config/hooks/normal/*.hook.chroot
 
 lb build
 
