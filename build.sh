@@ -11,7 +11,7 @@ command -v lb >/dev/null || { echo "live-build is required" >&2; exit 1; }
 lb clean --purge 2>/dev/null || true
 
 # Use Debian Trixie's own live-build rather than Ubuntu 24.04's legacy 3.0~a57.
-# The Trixie version understands the current archive layout and hybrid BIOS/UEFI boot.
+# Let live-build stage the kernel; linux-image-amd64 is explicitly in the package list.
 lb config noauto \
   --mode debian \
   --architecture "$ARCH" \
@@ -20,7 +20,6 @@ lb config noauto \
   --mirror-chroot "$MIRROR" \
   --mirror-binary "$MIRROR" \
   --apt-recommends false \
-  --linux-packages none \
   --initsystem systemd \
   --binary-image iso-hybrid \
   --bootloaders "syslinux,grub-efi" \
