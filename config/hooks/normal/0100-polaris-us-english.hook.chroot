@@ -1,0 +1,16 @@
+#!/bin/sh
+set -eu
+
+# Ubuntu 24.04's older live-build expects these legacy paths, while Debian
+# Trixie installs the files under /usr/lib.
+mkdir -p /root/isolinux
+test -e /usr/lib/ISOLINUX/isolinux.bin
+test -e /usr/lib/syslinux/modules/bios/vesamenu.c32
+ln -sf /usr/lib/ISOLINUX/isolinux.bin /root/isolinux/isolinux.bin
+ln -sf /usr/lib/syslinux/modules/bios/vesamenu.c32 /root/isolinux/vesamenu.c32
+
+# Generate and select only the US English UTF-8 system locale.
+printf '%s\n' 'en_US.UTF-8 UTF-8' > /etc/locale.gen
+locale-gen
+printf '%s\n' 'LANG=en_US.UTF-8' 'LANGUAGE=en_US:en' > /etc/default/locale
+printf '%s\n' 'XKBLAYOUT="us"' > /etc/default/keyboard
