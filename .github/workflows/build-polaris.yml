@@ -1,0 +1,41 @@
+name: Build Polaris ISO
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Free disk space
+        run: |
+          sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc || true
+          sudo docker image prune --all --force || true
+          df -h
+
+      - name: Install build tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y live-build debootstrap
+
+      - name: Build Polaris ISO
+        run: sudo ./build.sh
+
+      - name: Upload ISO
+        uses: actions/upload-artifact@v4
+        with:
+          name: Polaris-OS-amd64
+          path: |
+            *.iso
+            SHA256SUMS
+          if-no-files-found: error
+          retention-days: 14
