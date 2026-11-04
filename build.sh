@@ -34,6 +34,9 @@ lb config noauto \
   --iso-volume "POLARIS" \
   --memtest none
 
+# GitHub's file API creates hooks as non-executable; mark chroot hooks runnable.
+chmod +x config/hooks/normal/*.hook.chroot
+
 lb build
 
 mv "live-image-${ARCH}.hybrid.iso" "$OUT"
