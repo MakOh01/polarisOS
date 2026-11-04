@@ -1,14 +1,11 @@
 live-config-systemd
-# Kernel is installed through the normal package list; avoid live-build
-# auto-discovery of the removed Contents-amd64.gz index.
 linux-image-amd64
 
-# BIOS ISO boot files: live-build's ISOLINUX theme dereferences these in chroot.
+# BIOS ISO boot files
 isolinux
 syslinux-common
 
 # Base desktop experience
-# Install KDE Standard explicitly because recommended packages are disabled.
 live-task-kde
 kde-standard
 sddm
@@ -29,7 +26,7 @@ plasma-discover
 plasma-discover-backend-flatpak
 vlc
 
-# Browser (the base Firefox package uses US English by default)
+# Browser
 firefox-esr
 
 # US English dictionaries and locale only
@@ -48,7 +45,16 @@ wireplumber
 calamares
 calamares-settings-debian
 
-# Hardware / firmware support
+# Wi-Fi stack: NetworkManager normally uses wpa_supplicant; include the
+# common backend, modern alternative tooling, regulatory database and diagnostics.
+wpasupplicant
+iwd
+wireless-regdb
+iw
+rfkill
+wireless-tools
+
+# Broad firmware coverage for common laptop Wi-Fi chipsets
 firmware-linux
 firmware-linux-free
 firmware-misc-nonfree
@@ -58,14 +64,12 @@ firmware-atheros
 firmware-brcm80211
 firmware-mediatek
 firmware-ralink
-firmware-amd-graphics
+firmware-libertas
+firmware-ipw2x00
 firmware-intel-sound
+firmware-amd-graphics
 intel-microcode
 amd64-microcode
-
-# Wireless diagnostics and radio control
-iw
-rfkill
 
 # Common hardware services
 bluez
