@@ -5,12 +5,14 @@ SUITE="${SUITE:-trixie}"
 ARCH="${ARCH:-amd64}"
 OUT="Polaris-OS-${SUITE}-${ARCH}.iso"
 MIRROR="${MIRROR:-https://deb.debian.org/debian}"
-SECURITY_MIRROR="${SECURITY_MIRROR:-https://security.debian.org/debian-security}"
 
 command -v lb >/dev/null || { echo "live-build is required" >&2; exit 1; }
 
 lb clean --purge 2>/dev/null || true
 
+# Ubuntu's live-build package still uses the legacy "<suite>/updates" security
+# suite format for Debian. Disable the separate security suite for the initial
+# ISO build; the normal Debian mirror still provides the selected Trixie release.
 lb config noauto \
   --mode debian \
   --architectures "$ARCH" \
@@ -18,8 +20,7 @@ lb config noauto \
   --mirror-bootstrap "$MIRROR" \
   --mirror-chroot "$MIRROR" \
   --mirror-binary "$MIRROR" \
-  --mirror-chroot-security "$SECURITY_MIRROR" \
-  --mirror-binary-security "$SECURITY_MIRROR" \
+  --security false \
   --binary-images iso-hybrid \
   --archive-areas "main contrib non-free non-free-firmware" \
   --debian-installer none \
