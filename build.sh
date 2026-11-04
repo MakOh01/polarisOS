@@ -5,14 +5,12 @@ SUITE="${SUITE:-trixie}"
 ARCH="${ARCH:-amd64}"
 OUT="Polaris-OS-${SUITE}-${ARCH}.iso"
 MIRROR="${MIRROR:-https://deb.debian.org/debian}"
+SECURITY_MIRROR="${SECURITY_MIRROR:-https://security.debian.org/debian-security}"
 
 command -v lb >/dev/null || { echo "live-build is required" >&2; exit 1; }
 
-# Clean previous live-build state while preserving our configuration files.
 lb clean --purge 2>/dev/null || true
 
-# The GitHub runner is Ubuntu, so explicitly tell live-build to build Debian
-# and explicitly use Debian mirrors instead of inheriting Ubuntu defaults.
 lb config noauto \
   --mode debian \
   --architectures "$ARCH" \
@@ -20,6 +18,8 @@ lb config noauto \
   --mirror-bootstrap "$MIRROR" \
   --mirror-chroot "$MIRROR" \
   --mirror-binary "$MIRROR" \
+  --mirror-chroot-security "$SECURITY_MIRROR" \
+  --mirror-binary-security "$SECURITY_MIRROR" \
   --binary-images iso-hybrid \
   --archive-areas "main contrib non-free non-free-firmware" \
   --debian-installer none \
