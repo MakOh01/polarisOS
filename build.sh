@@ -21,6 +21,7 @@ lb config noauto \
   --mirror-chroot "$MIRROR" \
   --mirror-binary "$MIRROR" \
   --security false \
+  --linux-packages none \
   --binary-images iso-hybrid \
   --archive-areas "main contrib non-free non-free-firmware" \
   --debian-installer none \
