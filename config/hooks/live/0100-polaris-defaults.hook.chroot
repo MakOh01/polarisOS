@@ -1,0 +1,12 @@
+#!/bin/sh
+set -e
+
+# Make NetworkManager the default networking service.
+systemctl enable NetworkManager.service || true
+systemctl enable sddm.service || true
+
+# Enable common desktop services.
+systemctl enable bluetooth.service || true
+systemctl enable cups.service || true
+
+# Friendly live user defaults are handled by live-config.

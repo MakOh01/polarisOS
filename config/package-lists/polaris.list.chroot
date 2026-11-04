@@ -1,0 +1,55 @@
+# Base desktop experience
+live-task-kde
+sddm
+network-manager
+network-manager-openvpn
+plasma-nm
+konsole
+dolphin
+kate
+ark
+okular
+
+# Browser
+firefox-esr
+
+# Audio / modern desktop plumbing
+pipewire
+pipewire-pulse
+wireplumber
+
+# Easy graphical installer
+calamares
+calamares-settings-debian
+
+# Hardware / firmware support
+firmware-linux
+firmware-linux-free
+firmware-misc-nonfree
+firmware-iwlwifi
+firmware-realtek
+firmware-atheros
+firmware-brcm80211
+firmware-amd-graphics
+intel-microcode
+amd64-microcode
+
+# Common hardware services
+bluez
+bluedevil
+cups
+cups-browsed
+avahi-daemon
+udisks2
+ntfs-3g
+exfatprogs
+
+# Useful utilities
+curl
+wget
+sudo
+nano
+pciutils
+usbutils
+lshw
+inxi
