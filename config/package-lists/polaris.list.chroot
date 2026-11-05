@@ -71,6 +71,18 @@ firmware-amd-graphics
 intel-microcode
 amd64-microcode
 
+
+# Installer partitioning and filesystem tools
+parted
+gdisk
+dosfstools
+e2fsprogs
+btrfs-progs
+xfsprogs
+efibootmgr
+grub-efi-amd64-bin
+grub-pc-bin
+
 # Common hardware services
 bluez
 bluedevil
