@@ -73,6 +73,7 @@ amd64-microcode
 
 
 # Installer partitioning and filesystem tools
+squashfs-tools
 parted
 gdisk
 dosfstools
