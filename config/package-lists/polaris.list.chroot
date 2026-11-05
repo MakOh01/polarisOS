@@ -73,6 +73,10 @@ amd64-microcode
 
 
 # Installer partitioning and filesystem tools
+grub-efi-amd64
+grub-efi
+grub2-common
+grub-common
 squashfs-tools
 parted
 gdisk
