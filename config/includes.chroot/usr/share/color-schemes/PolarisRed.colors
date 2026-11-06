@@ -1,0 +1,18 @@
+[General]
+Name=Polaris Red
+
+[Colors:Button]
+BackgroundNormal=#10090d
+ForegroundNormal=#fff4f6
+
+[Colors:Selection]
+BackgroundNormal=#FF304F
+ForegroundNormal=#10090d
+
+[Colors:View]
+BackgroundNormal=#10090d
+ForegroundNormal=#fff4f6
+
+[Colors:Window]
+BackgroundNormal=#10090d
+ForegroundNormal=#fff4f6

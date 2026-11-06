@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Polaris Themes
+Comment=Switch between Polaris Gold, Neon and Red
+Exec=polaris-theme-switcher
+Icon=preferences-desktop-theme
+Categories=Settings;DesktopSettings;
+Terminal=false

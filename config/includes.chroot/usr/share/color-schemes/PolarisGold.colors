@@ -1,0 +1,18 @@
+[General]
+Name=Polaris Gold
+
+[Colors:Button]
+BackgroundNormal=#0b1016
+ForegroundNormal=#f4f7fb
+
+[Colors:Selection]
+BackgroundNormal=#FFD400
+ForegroundNormal=#0b1016
+
+[Colors:View]
+BackgroundNormal=#0b1016
+ForegroundNormal=#f4f7fb
+
+[Colors:Window]
+BackgroundNormal=#0b1016
+ForegroundNormal=#f4f7fb

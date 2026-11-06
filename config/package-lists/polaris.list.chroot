@@ -25,6 +25,7 @@ partitionmanager
 plasma-discover
 plasma-discover-backend-flatpak
 vlc
+kdialog
 
 # Browser
 firefox-esr
@@ -45,8 +46,6 @@ wireplumber
 calamares
 calamares-settings-debian
 
-# Wi-Fi stack: NetworkManager normally uses wpa_supplicant; include the
-# common backend, modern alternative tooling, regulatory database and diagnostics.
 wpasupplicant
 iwd
 wireless-regdb
@@ -54,7 +53,6 @@ iw
 rfkill
 wireless-tools
 
-# Broad firmware coverage for common laptop Wi-Fi chipsets
 firmware-linux
 firmware-linux-free
 firmware-misc-nonfree
@@ -71,8 +69,6 @@ firmware-amd-graphics
 intel-microcode
 amd64-microcode
 
-
-# Installer partitioning and filesystem tools
 grub-efi-amd64
 grub-efi
 grub2-common
@@ -88,7 +84,6 @@ efibootmgr
 grub-efi-amd64-bin
 grub-pc-bin
 
-# Common hardware services
 bluez
 bluedevil
 cups
@@ -98,7 +93,6 @@ udisks2
 ntfs-3g
 exfatprogs
 
-# Useful utilities
 curl
 wget
 sudo

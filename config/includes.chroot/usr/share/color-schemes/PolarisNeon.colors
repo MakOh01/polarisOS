@@ -1,0 +1,18 @@
+[General]
+Name=Polaris Neon
+
+[Colors:Button]
+BackgroundNormal=#0b0b18
+ForegroundNormal=#eef7ff
+
+[Colors:Selection]
+BackgroundNormal=#00E5FF
+ForegroundNormal=#0b0b18
+
+[Colors:View]
+BackgroundNormal=#0b0b18
+ForegroundNormal=#eef7ff
+
+[Colors:Window]
+BackgroundNormal=#0b0b18
+ForegroundNormal=#eef7ff

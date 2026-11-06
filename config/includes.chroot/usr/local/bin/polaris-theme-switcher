@@ -1,0 +1,17 @@
+#!/bin/sh
+set -eu
+theme="${1:-}"
+if [ -z "$theme" ]; then
+  theme=$(kdialog --title "Polaris Themes" --menu "Choose your Polaris interface:" gold "Polaris Gold — yellow + cyan" neon "Polaris Neon — cyan + purple" red "Polaris Red — red + cyan") || exit 0
+fi
+case "$theme" in
+  gold) scheme=PolarisGold; wall=/usr/share/polaris/wallpapers/gold.svg ;;
+  neon) scheme=PolarisNeon; wall=/usr/share/polaris/wallpapers/neon.svg ;;
+  red) scheme=PolarisRed; wall=/usr/share/polaris/wallpapers/red.svg ;;
+  *) kdialog --error "Unknown Polaris theme"; exit 1 ;;
+esac
+command -v plasma-apply-colorscheme >/dev/null 2>&1 && plasma-apply-colorscheme "$scheme" || true
+command -v plasma-apply-wallpaperimage >/dev/null 2>&1 && plasma-apply-wallpaperimage "$wall" || true
+mkdir -p "$HOME/.config"
+printf '%s\n' "$theme" > "$HOME/.config/polaris-theme"
+kdialog --title "Polaris Themes" --passivepopup "Polaris theme activated" 4
